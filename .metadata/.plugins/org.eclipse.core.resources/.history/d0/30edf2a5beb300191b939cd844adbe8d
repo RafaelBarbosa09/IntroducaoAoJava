@@ -1,0 +1,14 @@
+
+public class TestaFuncionario {
+
+	public static void main(String[] args) {
+		
+		Funcionario rafael = new Funcionario("Rafael", "13764247703", 1500 );
+		
+		System.out.println(rafael.getNome());
+		System.out.println(rafael.getCpf());
+		System.out.println(rafael.getSalario());
+
+	}
+
+}

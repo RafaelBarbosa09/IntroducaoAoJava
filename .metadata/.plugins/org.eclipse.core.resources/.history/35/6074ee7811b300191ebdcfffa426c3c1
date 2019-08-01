@@ -1,0 +1,42 @@
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Scanner;
+
+import model.Cliente;
+
+public class App {
+
+	public static void main(String[] args) {
+		
+		List<Cliente> clientes = new ArrayList<>();
+		
+		Scanner sc = new Scanner(System.in);
+		
+		while(true) {
+			System.out.print("Digite um numero: ");
+			int instrucao = sc.nextInt();
+			System.out.println("O numero digitado foi: " + instrucao);
+			
+		}
+		
+			
+			
+			System.out.println("Digite o nome do cliente: ");
+			String nome = sc.next();	
+			
+			System.out.println("Digite o cpf: ");
+			String cpf = sc.next();
+			
+			System.out.println("Digite o endereço: ");
+			String endereco = sc.next();
+			
+			Cliente cliente = new Cliente(nome, endereco, cpf);
+			clientes.add(cliente);
+			
+			System.out.println("Cliente cadastrado com suceso. ");
+		
+		sc.close();
+
+	}
+
+}

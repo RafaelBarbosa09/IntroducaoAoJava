@@ -1,0 +1,12 @@
+
+public class TestaBanco {
+	public static void main(String[] args) {
+		
+		Cliente rafael = new Cliente();
+		rafael.nome = "Rafael Barbosa";
+		rafael.cpf = "12345678900";
+		rafael.profissao = "Desenvolvedor mobile Sênior"
+		
+	}
+
+}

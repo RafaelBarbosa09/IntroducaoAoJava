@@ -1,0 +1,18 @@
+
+public class TestaFuncionario {
+
+	public static void main(String[] args) {
+		
+		Funcionario rafael = new Funcionario();
+		
+		rafael.setNome("Rafael");
+		
+		System.out.println("nome: " + rafael.getNome());
+		System.out.println("cpf: " + rafael.getCpf());
+		System.out.println("salário: " + rafael.getSalario());
+		System.out.println("bonificação: " + rafael.getBonificacao());
+		System.out.println("O total do salário com a bonificação é: " + (rafael.getSalario() + rafael.getBonificacao()));
+
+	}
+
+}

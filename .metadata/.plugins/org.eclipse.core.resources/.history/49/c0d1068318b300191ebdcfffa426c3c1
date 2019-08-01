@@ -1,0 +1,90 @@
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Scanner;
+
+import model.Cliente;
+
+public class App {
+
+	public static void main(String[] args) {
+		
+		List<Cliente> clientes = new ArrayList<>();
+		
+		
+		
+		while(true) {
+			Scanner sc = new Scanner(System.in);
+			System.out.print("Digite um numero: ");
+			int instrucao = sc.nextInt();
+			System.out.println("O numero digitado foi: " + instrucao);
+			
+			if(instrucao == 1) {
+				System.out.println("Digite o nome do cliente: ");
+				String nome = sc.next();	
+				
+				System.out.println("Digite o cpf: ");
+				String cpf = sc.next();
+				
+				System.out.println("Digite o endereço: ");
+				String endereco = sc.next();
+				
+				Cliente cliente = new Cliente(nome, endereco, cpf);
+				clientes.add(cliente);
+				
+				System.out.println("Cliente cadastrado com sucesso. ");
+				
+			} else if(instrucao == 2){
+				System.out.println("Informe o cpf para consulta: ");
+				String cpfConsulta = sc.next();
+				Cliente clienteConstulta = buscaCliente(cpfConsulta, clientes);
+				if(clienteConstulta.getCpf() == null) {
+					System.out.println("Cliente não localizado! ");
+				}
+				
+			} else if(instrucao == 3) {
+				System.out.println("Informe o cpf: ");
+				String cpfEdicao = sc.next();
+				
+				Cliente clienteEdicao = buscaCliente(cpfEdicao, clientes);
+				
+				System.out.print("Informe o novo endereço: ");
+				String novoEndereco = sc.next();
+				
+				clienteEdicao.setEndereco(novoEndereco);
+				
+				
+				editaCliente(clientes, cpfEdicao, clienteEdicao);
+				
+			}
+			
+		}
+		
+	}
+
+	private static void editaCliente(List<Cliente> clientes, String cpfEdicao, Cliente clienteEdicao) {
+		for(int i = 0; i < clientes.size(); i++) {
+			if(clientes.get(i).getCpf().equals(cpfEdicao)) {
+				clientes.remove(i);
+				clientes.add(clienteEdicao);
+				break;
+			}
+		}
+		System.out.println("Endereço editado com sucesso! ");
+		System.out.println("O novo endereço é " + clienteEdicao.getEndereco());
+		
+	}
+
+	private static Cliente buscaCliente(String cpfConsulta, List<Cliente> clientes) {
+		
+		for(int i = 0; i < clientes.size(); i++) {
+			if(clientes.get(i).getCpf().equals(cpfConsulta)) {
+				return clientes.get(i);
+			}
+			
+		}
+		return null;
+		
+		
+	}
+
+}
